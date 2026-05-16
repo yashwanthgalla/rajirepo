@@ -65,12 +65,10 @@ function DataSphere({ theme }: { theme?: string }) {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
+          args={[positions, 3]}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.02} color="#6c63ff" transparent opacity={theme === 'light' ? 0.8 : 0.6} sizeAttenuation />
+      <pointsMaterial args={[{ size: 0.02, color: '#6c63ff', transparent: true, opacity: theme === 'light' ? 0.8 : 0.6, sizeAttenuation: true }]} />
     </points>
   );
 }
